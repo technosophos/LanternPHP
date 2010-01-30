@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs for page Fortissimo.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.png";
+				imgMinus.src = "../../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/Fortissimo.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+			|							<a href="#sec-includes">Includes</a>
+			|							<a href="#sec-constants">Constants</a>
+										</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Fortissimo core.</p>
+<p class="description"><p>This file contains the core classes necessary to bootstrap and run an  application that makes use of the Fortissimo framework. All of the necessary  classes are encapsulated in this single file so that bootstrapping time can be  kept to a minimum, with as little loading/autoloading overhead as possible.</p><p>When this file is loaded, the include path is augmented to include the  includes/, core/, and phar/ directories.</p><p><strong>Using Fortissimo</strong>  Fortissimo is a framework for developing web applications. Unlike most  web frameworks, it is not based on the MVC pattern. Instead, it uses  the front controller pattern, coupled with a variation on the chain-of-command  pattern.</p><p>To get started, look at the command.xml file. The front controller reads  this file to map requests to a sequence of commands. When building a  Fortissimo application, you will be building such mappings yourself.</p><p>Each request will kick off a chain of zero or more commands, which are  executed in sequence. A command is simply a class that implements the  <a href="../../Fortissimo/Core/FortissimoCommand.html">FortissimoCommand</a> class. Most commands will extend the abstract  <a href="../../Fortissimo/Core/BaseFortissimoCommand.html">BaseFortissimoCommand</a> class, which provides a baseline of  functionality.</p><p>A command can take zero or more parameters. Parameters can be retrieved from  a wide variety of sources, the most common being GET and POST data, and  output from other commands. Since commands are highly configurable, they  are input-neutral: the parameters can come from any input. Fortissimo  itself handles the retrieval of parameters, and the source of each parameter  is configured not in code, but in the commands.xml file. Practically speaking,  what this means is that one command can recieve input from a user-configurable  source. The data can come from GET, POST, cookies, sessions, other commands,  command line args, or environment variables.</p><p>To get started with Fortissimo, take a look at some of the unit testing  classes or read the online documentation. Then write a custom class implementing  the BaseFortissimoCommand.</p><p><strong>The Fortissimo Autoloader</strong>  Fortissimo uses the default SPL autoloader to find and load classes. For that  reason, if you follow the convention of storing classes inside of files  named with the class name, you will not need to use include() or any  other such functions.</p><p>Current benchmarks indicate that the SPL autoloader is slightly faster than  using require/require_once, both with and without an opcode cache.</p><p>You can augment the autoloader's default paths using <div class="src-code"><ol><li><div class="src-line"><span class="src-inc">include</span></div></li>
+</ol></div>  elements in the command.xml file (or manually loading them in via the  config object).</p><p>The code in the Fortissimo project is released under an MIT-style license.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> M Butcher &lt;<a href="mailto:matt@aleph-null.tv">matt@aleph-null.tv</a>&gt;</li>
+				<li><span class="field">version:</span> @UNSTABLE@</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2009, Matt Butcher.</li>
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/Fortissimo.html">Fortissimo</a></li>
+				<li><span class="field">filesource:</span> <a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html">Source Code for this file</a></li>
+				<li><span class="field">license:</span> <a href="http://opensource.org/licenses/mit.php">An MIT-style License (See LICENSE.txt)</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+			|							<a href="#sec-includes">Includes</a>
+				|										<a href="#sec-constants">Constants</a>
+															</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/Fortissimo.html">Fortissimo</a>
+					</td>
+					<td>
+											The Fortissimo front controller.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoRequest.html">FortissimoRequest</a>
+					</td>
+					<td>
+											A Fortissimo request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoCommand.html">FortissimoCommand</a>
+					</td>
+					<td>
+											A Fortissimo command.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a>
+					</td>
+					<td>
+											Container for parameter descriptions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a>
+					</td>
+					<td>
+											Describe a parameter.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/Explainable.html">Explainable</a>
+					</td>
+					<td>
+											Any class that implements Explainable must return a string that describes,  in human readable language, what it does.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/BaseFortissimoCommand.html">BaseFortissimoCommand</a>
+					</td>
+					<td>
+											This is a base class that can be extended to add new commands.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoConfig.html">FortissimoConfig</a>
+					</td>
+					<td>
+											Stores information about Fortissimo commands.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a>
+					</td>
+					<td>
+											Tracks context information over the lifecycle of a request's execution.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoCacheManager.html">FortissimoCacheManager</a>
+					</td>
+					<td>
+											Manage caches.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoLoggerManager.html">FortissimoLoggerManager</a>
+					</td>
+					<td>
+											Manage loggers for a server.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoOutputInjectionLogger.html">FortissimoOutputInjectionLogger</a>
+					</td>
+					<td>
+											The FOIL logger sends messages directly to STDOUT.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoArrayInjectionLogger.html">FortissimoArrayInjectionLogger</a>
+					</td>
+					<td>
+											The FAIL logger maintains an array of messages to be retrieved later.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/SimpleArrayInjectionLogger.html">SimpleArrayInjectionLogger</a>
+					</td>
+					<td>
+											Provide a simple user-friendly (non-trace) error message.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/SimpleOutputInjectionLogger.html">SimpleOutputInjectionLogger</a>
+					</td>
+					<td>
+											Provide a simple user-friendly (non-trace) error message.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoRequestCache.html">FortissimoRequestCache</a>
+					</td>
+					<td>
+											A cache for command or request output.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoLogger.html">FortissimoLogger</a>
+					</td>
+					<td>
+											A logger responsible for logging messages to a particular destination.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoInterrupt.html">FortissimoInterrupt</a>
+					</td>
+					<td>
+											Indicates that a condition has been met that necessitates interrupting the command execution chain.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoInterruptException.html">FortissimoInterruptException</a>
+					</td>
+					<td>
+											Indicates that a fatal error has occured.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoException.html">FortissimoException</a>
+					</td>
+					<td>
+											General Fortissimo exception.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoErrorException.html">FortissimoErrorException</a>
+					</td>
+					<td>
+											Transform an error or warning into an exception.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoConfigurationException.html">FortissimoConfigurationException</a>
+					</td>
+					<td>
+											Configuration error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoRequestNotFoundException.html">FortissimoRequestNotFoundException</a>
+					</td>
+					<td>
+											Request was not found.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../Fortissimo/Core/FortissimoForwardRequest.html">FortissimoForwardRequest</a>
+					</td>
+					<td>
+											Forward a request to another request.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|						<span class="disabled">Includes</span>
+			|							<a href="#sec-constants">Constants</a>
+															</div>
+		<div class="info-box-body">	
+			<a name="_QueryPath/QueryPath_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">'QueryPath/QueryPath.php'</span>)
+			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a110">110</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">QueryPath is a core Fortissimo utility.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://querypath.org">http://querypath.org</a></li>
+			</ul>
+	
+</div>
+		</div>
+	</div>
+	
+	<a name="sec-constants"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|										<a href="#sec-includes">Includes</a>
+				|						<span class="disabled">Constants</span>
+											</div>
+		<div class="info-box-body">	
+			<a name="defineFORTISSIMO_REQ_TIME"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">FORTISSIMO_REQ_TIME</span> = time()
+			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a72">72</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This constant contains the request start time.</p>
+<p class="description"><p>For optimal performance, use this instead of <a href="http://www.php.net/time">http://www.php.net/time</a>  to generate the NOW time.</p></p>
+	
+		
+</div>
+<a name="defineFORTISSIMO_VERSION"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">FORTISSIMO_VERSION</span> = '@UNSTABLE@'
+			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a89">89</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The version number for this release of QueryPath.</p>
+<p class="description"><p>Stable versions are numbered in standard x.y.z format, where x is the major  version, y is the minor version, and z is the bug-fix/patch level.</p><p>Developer releases are stamped dev-DATE, where DATE is the ISO-formatted date  of the build. You should not use these versions on production systems, nor  as a platform for application development, since they are considered unfrozen,  and hence subject to change.</p><p>The special flag @ UNSTABLE @ means that a non-built version of the application  is being used. This should occur only for developers who are actively developing  Fortissimo. No production release should ever have this tag.</p></p>
+	
+		
+</div>
+		</div>
+	</div>
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 04 Jan 2010 20:20:24 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

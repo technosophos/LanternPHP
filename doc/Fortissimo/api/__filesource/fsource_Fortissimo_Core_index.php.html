@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>File Source for index.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+											</head>
+		<body>
+						<h1>Source for file index.php</h1>
+<p>Documentation is available at <a href="../Fortissimo/Core/_index.php.html">index.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;The&nbsp;top-level&nbsp;Fortissimo&nbsp;server.</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;This&nbsp;handles&nbsp;the&nbsp;HTTP/HTTPS&nbsp;service&nbsp;for&nbsp;Fortissimo.</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;It&nbsp;expects&nbsp;a&nbsp;GET&nbsp;string&nbsp;with&nbsp;the&nbsp;query&nbsp;'ff=someRequestName',&nbsp;which</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*&nbsp;will&nbsp;be&nbsp;translated&nbsp;to&nbsp;a&nbsp;request&nbsp;section&nbsp;in&nbsp;the&nbsp;commands.xml&nbsp;file.&nbsp;That</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">&nbsp;*&nbsp;request&nbsp;will&nbsp;then&nbsp;be&nbsp;executed,&nbsp;one&nbsp;command&nbsp;after&nbsp;another,&nbsp;until&nbsp;the&nbsp;end&nbsp;of</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">&nbsp;*&nbsp;the&nbsp;command&nbsp;chain&nbsp;is&nbsp;reached.</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Fortissimo</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@subpackage</span><span class="src-doc">&nbsp;Core</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@author</span><span class="src-doc">&nbsp;M&nbsp;Butcher&nbsp;&lt;matt@aleph-null.tv&gt;</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;http://opensource.org/licenses/mit.php&nbsp;An&nbsp;MIT-style&nbsp;License&nbsp;(See&nbsp;LICENSE.txt)</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;Fortissimo</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;Fortissimo.php</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;Copyright&nbsp;(c)&nbsp;2009,&nbsp;Matt&nbsp;Butcher.</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;@UNSTABLE@</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-key">if</span><span class="src-sym">(</span><a href="http://www.php.net/version_compare">version_compare</a><span class="src-sym">(</span><a href="http://www.php.net/phpversion">phpversion</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-str">'5.2'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'&gt;'</span><span class="src-sym">)&nbsp;</span>===&nbsp;<span class="src-id">FALSE</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;print&nbsp;<span class="src-str">'PHP&nbsp;5.2&nbsp;or&nbsp;greater&nbsp;is&nbsp;required.'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;<span class="src-key">exit</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-comm">//&nbsp;Idiotic&nbsp;things&nbsp;you&nbsp;just&nbsp;have&nbsp;to&nbsp;do...</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-key">if&nbsp;</span><span class="src-sym">(</span><a href="http://www.php.net/get_magic_quotes_gpc">get_magic_quotes_gpc</a><span class="src-sym">(</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;print&nbsp;<span class="src-str">'Magic&nbsp;quotes,&nbsp;a&nbsp;deprecated&nbsp;PHP&nbsp;feature,&nbsp;are&nbsp;enabled.&nbsp;Please&nbsp;turn&nbsp;them&nbsp;off.'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;<span class="src-key">exit</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-key">if&nbsp;</span><span class="src-sym">(</span><a href="http://www.php.net/get_magic_quotes_runtime">get_magic_quotes_runtime</a><span class="src-sym">(</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;<a href="http://www.php.net/set_magic_quotes_runtime">set_magic_quotes_runtime</a><span class="src-sym">(</span><span class="src-id">FALSE</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a32"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a35"></a><span class="src-doc">&nbsp;*&nbsp;Import&nbsp;the&nbsp;main&nbsp;library.</span></div></li>
+<li><div class="src-line"><a name="a36"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a37"></a>require&nbsp;<span class="src-str">'Fortissimo.php'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-var">$cmd&nbsp;</span>=&nbsp;<a href="http://www.php.net/filter_input">filter_input</a><span class="src-sym">(</span><span class="src-id">INPUT_GET</span><span class="src-sym">,&nbsp;</span><span class="src-str">'ff'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'string'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-key">empty</span><span class="src-sym">(</span><span class="src-var">$cmd</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;<span class="src-var">$cmd&nbsp;</span>=&nbsp;<span class="src-str">'default'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-var">$base&nbsp;</span>=&nbsp;<a href="http://www.php.net/dirname">dirname</a><span class="src-sym">(</span>__FILE__<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-var">$ff&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Fortissimo/Core/Fortissimo.html">Fortissimo</a></span><span class="src-sym">(</span><span class="src-var">$base&nbsp;</span>.&nbsp;<span class="src-str">'/config/commands.xml'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a46"></a><span class="src-var">$ff</span><span class="src-sym">-&gt;</span><span class="src-id">handleRequest</span><span class="src-sym">(</span><span class="src-var">$cmd</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 04 Jan 2010 20:20:29 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

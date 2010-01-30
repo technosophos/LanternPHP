@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class FortissimoCommand</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.png";
+				imgMinus.src = "../../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Interface FortissimoCommand</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A Fortissimo command.</p>
+<p class="description"><p>The main work unit in Fortissimo is the FortissimoCommand. A FortissimoCommand is  expected to conduct a single unit of work -- retrieving a datum, running a  calculation, doing a database lookup, etc. Data from a command (if any) can then  be stored in the <a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a> that is passed along the  chain of commands.</p><p>Each command has a request-unique <strong>name</strong> (only one command in each request  can have a given name), a set of zero or more <strong>params</strong>, passed as an array,  and a <strong><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a> object</strong>. This last object contains  the results (if any) of previously executed commands, and is the depository for  any data that the present command needs to pass along.</p><p>Typically, the last command in a request will format the data found in the context  and send it to the client for display.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Fortissimo.php.html">/Fortissimo.php</a> (line <span class="field"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a617">617</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																														
+				<div class="method-definition">
+											<span class="method-result">FortissimoCommand</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$caching</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#execute" title="details" class="method-name">execute</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$paramArray</span>, <span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>&nbsp;<span class="var-name">$cxt</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a634">634</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create an instance of a command.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">FortissimoCommand</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$caching</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Every instance of a command has a name. When a command adds information   to the context, it (by convention) stores this information keyed by name.   Other commands (perhaps other instances of the same class) can then interact   with this command by name.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$caching</span><span class="var-description">: If this is set to TRUE, the command is assumed to be a caching command,   which means (a) its output can be cached, and (b) it can be served   from a cache. It is completely up to the implementation of this interface   to provide (or not to provide) a link to the caching service. See   <a href="../../Fortissimo/Core/BaseFortissimoCommand.html">BaseFortissimoCommand</a> for an example of a caching service. There is   no requirement that caching be supported by a command.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a667">667</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute the command.</p>
+<p class="description"><p>Typically, when a command is executed, it does the following: <ul><li>uses the parameters passed as an array.</li><li>performs one or more operations</li><li>stores zero or more pieces of data in the context, typically keyed by this
+    object's $name.</li></ul>  Commands do not return values. Any data they produce can be placed into  the FortissimoExcecutionContext object. On the occasion of an error,  the command can either throw a <a href="../../Fortissimo/Core/FortissimoException.html">FortissimoException</a> (or any subclass  thereof), in which case the application will attempt to handle the error. Or it  may throw a <a href="../../Fortissimo/Core/FortissimoInterrupt.html">FortissimoInterrupt</a>, which will interrupt the flow of the  application, causing the application to forgo running the remaining commands.</p></p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> FortissimoException   Thrown if the command experiences a general execution error. This may not   result in the termination of the request. Other commands may be processed after   this.</li>
+				<li><span class="field">throws:</span> FortissimoInterrupt   Thrown when the command should be treated as the last command. The entire   request will be terminated if this is thrown.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			execute
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$paramArray</span>, <span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>&nbsp;<span class="var-name">$cxt</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$paramArray</span><span class="var-description">: An associative array of name/value parameters. A value may be of any data   type, including a classed object or a resource.</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>
+				<span class="var-name">$cxt</span><span class="var-description">: The execution context. This can be modified by the command. Typically,   though, it is only written to. Reading from the context may have the   effect of making the command less portable.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 04 Jan 2010 20:20:28 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

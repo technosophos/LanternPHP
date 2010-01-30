@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<commands xmlns="http://technosophos.com/2009/1.1/commands.xml">
+  
+  <!-- 
+  Fortissimo users the SPL autoloader to load classes, where the 
+  assumption is that ClassName is stored in ClassName.php, ClassName.cmd.php,
+  or ClassName.inc.
+  
+  To add additional directories to the class loader, specify them here.
+  
+  Example:
+  <include path="test/Tests"/>  
+  -->
+  
+  <!--
+  A group is a grouping of commands that cannot be executed as a request.
+  
+  They can be referenced in requests, though.
+  
+  Example:
+  <group name="bootstrap">
+    <cmd name="database" invoke="SimpleDatabaseAccess">
+      <param name="dsn">MyDSN</param>
+      <param name="user">user</param>
+      <param name="password">pass</param>
+    </cmd>
+  </group>
+  -->
+  
+  <group name="bootstrap">
+  </group>
+     
+     
+  <!-- The default request will be executed when the index is loaded. -->
+  <request name="default">
+    
+    <!-- Invoke all commands in the bootstrap group. -->
+    <cmd group="bootstrap"/>
+    <cmd name="echo" invoke="FortissimoEcho">
+      <param name="text">Fortissimo has been successfully installed.</param>
+    </cmd>
+    
+  </request>
+  
+  <!-- This is an example that would map to 
+  http://example.com/this_app/item or http://example.com/this_app.php?c=item
+  
+  <request name="item">
+    <cmd name="echo" invoke="FFEchoCommand">
+      <param name="message">Test</param>
+    </cmd>
+    <cmd name="dump" invoke="FFVarDumper">
+      <param name="variable" from="cmd:echo"/>
+    </cmd>
+  </request>
+  
+  -->
+  
+  <!-- Logs directly into STDOUT (the browser, the console). -->
+  <logger name="foil" invoke="FortissimoOutputInjectionLogger"/>
+  
+  <!-- Buffers log messages in an array to be retrieved later. 
+  <logger name="fail" invoke="FortissimoArrayInjectionLogger"/>
+  -->
+  
+  <!--
+  Example of a more sophisticated (non-existent) logger:
+  <logger name="syslog" invoke="FortissimoSyslogLogger">
+    <param name="facility">local6</param>
+  </logger>
+  -->
+  
+  <!--
+  Fortissimo supports global caches, though this is currently
+  experimental.
+  <cache name="dummy" invoke="FortissimoDummyRequestCache"/>
+  <cache name="dummy2" invoke="FortissimoDummyRequestCache">
+    <param name="param" value="foo"/>
+  </cache>
+  -->
+</commands>

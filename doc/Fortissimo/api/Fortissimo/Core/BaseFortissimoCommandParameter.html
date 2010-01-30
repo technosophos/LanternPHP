@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class BaseFortissimoCommandParameter</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.png";
+				imgMinus.src = "../../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BaseFortissimoCommandParameter</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Describe a parameter.</p>
+<p class="description"><p>Describe a parameter for a command.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a></li>
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">BaseFortissimoCommand::expects()</a></li>
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html">BaseFortissimoCommand</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Fortissimo.php.html">/Fortissimo.php</a> (line <span class="field"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a816">816</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$defaultValue" title="details" class="var-name">$defaultValue</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$description" title="details" class="var-name">$description</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$filters" title="details" class="var-name">$filters</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$name" title="details" class="var-name">$name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$required" title="details" class="var-name">$required</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																														
+				<div class="method-definition">
+											<span class="method-result">BaseFortissimoCommandParameter</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a></span>
+										<a href="#addFilter" title="details" class="method-name">addFilter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filter</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDefault" title="details" class="method-name">getDefault</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getDescription" title="details" class="method-name">getDescription</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getFilters" title="details" class="method-name">getFilters</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getName" title="details" class="method-name">getName</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#isRequired" title="details" class="method-name">isRequired</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDefault" title="details" class="method-name">setDefault</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$val</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a></span>
+										<a href="#setFilters" title="details" class="method-name">setFilters</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$filters</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$validators</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRequired" title="details" class="method-name">setRequired</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$required</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$defaultValue" id="$defaultValue"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$defaultValue</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a818">818</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$description" id="$description"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$description</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a818">818</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$filters" id="$filters"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$filters</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a817">817</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$name" id="$name"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$name</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a818">818</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$required" id="$required"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$required</span>
+			 = <span class="var-default"> FALSE</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a819">819</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a831">831</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a new parameter with a name, and optionally a description.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">BaseFortissimoCommandParameter</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the parameter. This is used to fetch the parameter   from the server.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$description</span><span class="var-description">: A human-readible description of what this parameter is used for.   This is used to automatically generate assistance.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddFilter" id="addFilter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addFilter</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a880">880</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a filter to this parameter.</p>
+<p class="description"><p>A parameter can have any number of filters. Filters are used to  either clean (sanitize) a value or check (validate) a value. In the first  case, the system will attempt to remove bad data. In the second case, the  system will merely check to see if the data is acceptible.</p><p>Fortissimo supports all of the filters supplied by PHP. For a complete  list, including valide options, see  <a href="http://us.php.net/manual/en/book.filter.php">http://us.php.net/manual/en/book.filter.php</a>.</p><p>Filters each have options, and the options can augment filter behavior, sometimes  in remarkable ways. See <a href="http://us.php.net/manual/en/filter.filters.php">http://us.php.net/manual/en/filter.filters.php</a> for  complete documentation on all filters and all of their options.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns this object to facilitate chaining.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a></span>
+		<span class="method-name">
+			addFilter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filter</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filter</span><span class="var-description">: One of the predefined filter types supported by PHP. You can obtain the list   from the PHP builtin function <a href="http://www.php.net/filter_list">http://www.php.net/filter_list</a>. Here are values currently   documented: <ul><li>int: Checks whether a value is an integer.</li><li>boolean: Checks whether a value is a boolean.</li><li>float: Checks whether a value is an integer (optionally, in a range).</li><li>validate_regexp: Check whether a parameter's value matches a given regular expression.</li><li>validate_url: Checks whether a URL is valid.</li><li>validate_email: Checks whether a value is a valid email address.</li><li>validate_ip: Checks whether a value is a valid IP address.</li><li>string: Sanitizes a string, strips tags, can encode or strip special characters.</li><li>stripped: Same as 'string'</li><li>encoded: URL-encodes a string</li><li>special_chars: XML/HTML entity-encodes special characters.</li><li>unsafe_raw: Does nothing (can optionally encode/strip special chars)</li><li>email: Removes non-Email characters</li><li>url: Removes non-URL characters</li><li>number_int: Removes anything that is not a digit or a sign (+ or -).</li><li>number_float: Removes anything except digits, signs, . , e and E.</li><li>magic_quotes: Run <a href="http://www.php.net/addslashes">http://www.php.net/addslashes</a>.</li><li>callback: Use the given callback to filter.</li></ul></span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$options</span><span class="var-description">: This can be either an array or an OR'd list of flags, as specified in the   PHP documentation.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDefault" id="getDefault"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDefault</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a920">920</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the default value.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDefault
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDescription" id="getDescription"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDescription</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a931">931</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDescription
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFilters" id="getFilters"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFilters</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a929">929</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the list of filters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An array of the form specified in setValidators().</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getFilters
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetName" id="getName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getName</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a930">930</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisRequired" id="isRequired"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isRequired</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a908">908</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			isRequired
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetDefault" id="setDefault"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDefault</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a913">913</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the default value.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDefault
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$val</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$val</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetFilters" id="setFilters"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFilters</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a899">899</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set all filters for this object.</p>
+<p class="description"><p>Validators must be in the form:  &lt;?php  array(    array('type' =&gt; FILTER_SOME_CONST, 'options' =&gt; array('some'=&gt;'param')),    array('type' =&gt; FILTER_SOME_CONST, 'options' =&gt; array('some'=&gt;'param'))  );  ?&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns this object to facilitate chaining.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a></span>
+		<span class="method-name">
+			setFilters
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$filters</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$validators</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$validators</span><span class="var-description">: An indexed array of validator specifications.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$filters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRequired" id="setRequired"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRequired</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a904">904</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRequired
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$required</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$required</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 04 Jan 2010 20:20:27 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class BaseFortissimoCommand</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.png";
+				imgMinus.src = "../../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BaseFortissimoCommand</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../../Fortissimo/Core/FortissimoCommand.html">FortissimoCommand</a></li><li><a href="../../Fortissimo/Core/Explainable.html">Explainable</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This is a base class that can be extended to add new commands.</p>
+<p class="description"><p>The class provides several basic services.</p><p>First, it simplifies the  process of executing a command. The <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddoCommand">BaseFortissimoCommand::doCommand()</a>  method follows a very simple pattern.</p><p>Second, it provides structure for describing a command. The abstract  <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">BaseFortissimoCommand::expects()</a> method provides the facilities for  describing what parameters this command should use, how these parameters should  be filtered/validated/sanitized, and what each parameter is for.</p><p>Third, using the data from <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">BaseFortissimoCommand::expects()</a>, this  class provides a self-documenting tool, <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexplain">BaseFortissimoCommand::explain()</a>,  which uses the information about the parameter to provide human-radible  documentation about what this command does.</p><p>When extending this class, there are two things that every extension must do:</p><p><ol><li>It must provide information about what parameters it uses. This is done</li></ol>  by implementing <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">expects()</a>.  2. It must provide logic for performing the command. This is done in   <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddoCommand">doCommand()</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Fortissimo.php.html">/Fortissimo.php</a> (line <span class="field"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a981">981</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Fortissimo/Command/FortissimoContextDump.html">FortissimoContextDump</a></td>
+					<td>
+											This command dumps the contents of the context to standard out.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Fortissimo/Command/FortissimoEcho.html">FortissimoEcho</a></td>
+					<td>
+											This command prints
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$caching" title="details" class="var-name">$caching</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$context" title="details" class="var-name">$context</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$name" title="details" class="var-name">$name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$parameters" title="details" class="var-name">$parameters</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$paramsCollection" title="details" class="var-name">$paramsCollection</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">BaseFortissimoCommand</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$caching</span> = <span class="var-default">FALSE</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#context" title="details" class="method-name">context</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a></span>
+										<a href="#description" title="details" class="method-name">description</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#doCommand" title="details" class="method-name">doCommand</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#execute" title="details" class="method-name">execute</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$params</span>, <span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>&nbsp;<span class="var-name">$cxt</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a></span>
+										<a href="#expects" title="details" class="method-name">expects</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#explain" title="details" class="method-name">explain</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#handleIllegalParameter" title="details" class="method-name">handleIllegalParameter</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$filter</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$payload</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$options</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isCacheable" title="details" class="method-name">isCacheable</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#param" title="details" class="method-name">param</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#prepareParameters" title="details" class="method-name">prepareParameters</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#validate" title="details" class="method-name">validate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$filter</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$payload</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$caching" id="$caching"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$caching</span>
+			 = <span class="var-default"> FALSE</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1006">1006</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag indicating whether this object is currently (supposed to be)  in caching mode.</p>
+<p class="description"><p>For caching to be enabled, both this flag (which comes from the command  config) and the <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodisCacheable">isCacheable()</a> method must be TRUE.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$context" id="$context"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$context</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a997">997</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The request-wide execution context (<a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a>).</p>
+<p class="description"><p>Use this to retrieve the results of other commands. Typically, you will not need  to add data to this. Returning data from the <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddoCommand">doCommand()</a> method will  automatically insert it into the context.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$name" id="$name"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$name</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a989">989</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The name of this command.</p>
+<p class="description"><p>Passed from the 'name' value of the command configuration file.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$parameters" id="$parameters"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$parameters</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1015">1015</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An associative array of parameters.</p>
+<p class="description"><p>These are the parameters passed into the command from the environment. The name  will correspond to the 'name' parameter in the command configuration file. The  value is retrieved depending on the 'from' (or default value) rules in the  configuration file.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$paramsCollection" id="$paramsCollection"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$paramsCollection</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a983">983</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1017">1017</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">BaseFortissimoCommand</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$caching</span> = <span class="var-default">FALSE</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$caching</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Fortissimo/Core/FortissimoCommand.html#method__construct">FortissimoCommand::__construct()</a></dt>
+						<dd>Create an instance of a command.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcontext" id="context"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">context</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1067">1067</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get an object from the context.</p>
+<p class="description"><p>Get an object from the context by name. The context is the  <a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a> for the current request. When  a Fortissimo command extending <a href="../../Fortissimo/Core/BaseFortissimoCommand.html">BaseFortissimoCommand</a> returns,  its data goes into the context, so you can use this to fetch the results  of previous commands.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodparam">BaseFortissimoCommand::param()</a></li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			context
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the context object. Typically, this is the name value assigned   to a command in the commands.xml file.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$default</span><span class="var-description">: The default value that will be returned if no such object is found in the   context.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddescription" id="description"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">description</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1189">1189</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a description of this object.</p>
+<p class="description"><p>This function should be called from within <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">expects()</a>. Set a description  of what this command does. The resulting <a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a>  object that is returned should be used to set which parameters this command  expects to receive.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> An object for configuring this command.</li>
+				<li><span class="field">see:</span> BaseFortissimoCommand::expects();</li>
+				<li><span class="field">see:</span> BaseFortissimoCommand::explain();</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a></span>
+		<span class="method-name">
+			description
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: A description.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddoCommand" id="doCommand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">doCommand</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1343">1343</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Do the command.</p>
+<p class="description"><p>Performs the work for this command.</p><p>Every class that extends this base class should implement <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddoCommand">doCommand()</a>,  executing the command's logic, and returning the value or values that should  be placed into the execution context.</p><p>This object provides access to the following variables of interest: <ul><li><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#var$name">$name</a>: The name of the command.</li><li><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#var$parameters">$parameters</a>: The name/value list of parameters. These are learned
+    and validated based on the contents of the <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">expects()</a> method.</li><li><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#var$context">$context</a>: The <a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a> object for this request.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> A value to be placed into the execution environment. The value can be retrieved   using <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$cxt</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-var">$name</span><span class="src-sym">)</span></div></li>
+</ol></div>, where <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$name</span></div></li>
+</ol></div> is the value of this   object's $name variable.</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">throws:</span> FortissimoInterruptException   Thrown when a fatal error occurs and the request should terminate.</li>
+				<li><span class="field">throws:</span> FortissimoException   Thrown when an error occurs, but the application should continue.</li>
+				<li><span class="field">throws:</span> FortissimoInterrupt   Thrown when this command should terminate the request. This is a NON-ERROR condition.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			doCommand
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../Fortissimo/Command/FortissimoContextDump.html#methoddoCommand">FortissimoContextDump::doCommand()</a>
+								: Dump the context to STDOUT.
+							</li>
+					<li>
+				<a href="../../Fortissimo/Command/FortissimoEcho.html#methoddoCommand">FortissimoEcho::doCommand()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1072">1072</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			execute
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$params</span>, <span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>&nbsp;<span class="var-name">$cxt</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$params</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Fortissimo/Core/FortissimoExecutionContext.html">FortissimoExecutionContext</a></span>
+				<span class="var-name">$cxt</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Fortissimo/Core/FortissimoCommand.html#methodexecute">FortissimoCommand::execute()</a></dt>
+						<dd>Execute the command.</dd>
+					</dl>
+			
+	</div>
+<a name="methodexpects" id="expects"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">expects</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1316">1316</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Information about what parameters the command expects.</p>
+<p class="description"><p>A command is intended to perform a single discrete task. To perform  this task, a command may require one or more input parameters. This  method is used to accomplish two things:</p><p><ul><li>Declare what parameters it uses</li><li>Explain what it does</li></ul>  The first of these tasks is straightforward: A command uses parameters  for input. This method gives the command developer the tools to declare  which paramaters are used. Additionally, generic sanitization and validation  can automatically be done by the base command. Developers can declare which  filters should be run on data so that the parameters prepared before the  command is executed.</p><p>The second task is to explain what this command does with these parameters.  This is done to provide real-time documentation to developers. A command  has the ability to report (using <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexplain">explain()</a>) what it does, which  expedites the development of a Fortissimo application.</p><p>An implementation of this function should look something like this:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">expects</a><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddescription">description</a><span class="src-sym">(</span><span class="src-str">'This&nbsp;command&nbsp;sends&nbsp;a&nbsp;name&nbsp;to&nbsp;an&nbsp;email&nbsp;address.'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodparam">param</a><span class="src-sym">(</span><span class="src-str">'name'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'The&nbsp;name&nbsp;to&nbsp;echo&nbsp;back'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">withFilter</span><span class="src-sym">(</span><span class="src-str">'string'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodparam">param</a><span class="src-sym">(</span><span class="src-str">'email'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'An&nbsp;email&nbsp;address&nbsp;to&nbsp;echo&nbsp;data&nbsp;to.'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">withFilter</span><span class="src-sym">(</span><span class="src-str">'email'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">withFilter</span><span class="src-sym">(</span><span class="src-str">'validate_email'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">-&gt;</span><span class="src-id">andReturns</span><span class="src-sym">(</span><span class="src-str">'A&nbsp;copy&nbsp;of&nbsp;the&nbsp;sent&nbsp;message.'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p><p>The above describes a command that expects two parameters: name and email.  The name command is validated with the string sanitizer, which makes sure  that the string doesn't have markup in it.  The email command is first santized against the email sanitizer, then it  is checked against the email validator to make sure that it is a legitimate  email address.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns a collection of parameters. This can be easily obtained by   calling <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methoddescription">description()</a> on the present object. View the example above   or the SimpleCommandTest class to see basic examples of how to   return the appropriate data from this method.</li>
+				<li><span class="field">see:</span> SimpleCommandTest::expects() An example can be found in the unit tests.</li>
+				<li><span class="field">see:</span> <a href="http://us.php.net/manual/en/book.filter.php The PHP Filter system.">http://us.php.net/manual/en/book.filter.php The PHP Filter system.</a></li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Fortissimo/Core/BaseFortissimoCommandParameterCollection.html">BaseFortissimoCommandParameterCollection</a></span>
+		<span class="method-name">
+			expects
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../Fortissimo/Command/FortissimoContextDump.html#methodexpects">FortissimoContextDump::expects()</a>
+							</li>
+					<li>
+				<a href="../../Fortissimo/Command/FortissimoEcho.html#methodexpects">FortissimoEcho::expects()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodexplain" id="explain"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">explain</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1201">1201</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Produces helpful information about this command.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> A string with information about all of the paramters that this command uses,   and what each does.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			explain
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Fortissimo/Core/Explainable.html#methodexplain">Explainable::explain()</a></dt>
+						<dd>Provides a string explaining what this class does.</dd>
+					</dl>
+			
+	</div>
+<a name="methodhandleIllegalParameter" id="handleIllegalParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">handleIllegalParameter</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1092">1092</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handle a parameter validation/sanitization failure.</p>
+<p class="description"><p>By default, this simply throws an exception, but more advanced processing  can be handled here, if necessary.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodvalidate">BaseFortissimoCommand::validate()</a></li>
+				<li><span class="field">throws:</span> FortissimoException   If the filter fails, an exception is thrown. Note that   FILTER_VALIDATE_BOOLEAN will not throw an exception if it fails. Instead,   if converts values to FALSE. This is a limitation in the PHP   filter library, where a failed filter always returns FALSE.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			handleIllegalParameter
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$filter</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$payload</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$filter</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$payload</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisCacheable" id="isCacheable"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isCacheable</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1028">1028</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">By default, a Fortissimo base command is cacheable.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns TRUE unless a subclass overrides this.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isCacheable
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodparam" id="param"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">param</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1045">1045</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a parameter by name.</p>
+<p class="description"><p>Fetch a parameter by name. If no such parameter exists, the  $default value will be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodcontext">BaseFortissimoCommand::context()</a></li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			param
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the parameter to fetch.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$default</span><span class="var-description">: The default value to return if no such paramter is found.   This is NULL by default.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprepareParameters" id="prepareParameters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">prepareParameters</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1144">1144</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prepare all parameters.</p>
+<p class="description"><p>This fetches parameters from the server and performs any necessary  parameter filtering.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../Fortissimo/Core/BaseFortissimoCommand.html#methodexpects">BaseFortissimoCommand::expects()</a></li>
+				<li><span class="field">see:</span> BaseFortissimoCommand::describe()</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			prepareParameters
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: And array of <a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html">BaseFortissimoCommandParameter</a> objects which   will be used to determine what parameters this object needs.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodvalidate" id="validate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">validate</span> (line <span class="line-number"><a href="../../__filesource/fsource_Fortissimo_Core_Fortissimo.php.html#a1117">1117</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Run a validator or sanitizer.</p>
+<p class="description"><p>This runs a validator function or a sanitizer function, and returns  the result.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="http://us.php.net/manual/en/book.filter.php">http://us.php.net/manual/en/book.filter.php</a></li>
+				<li><span class="field">see:</span> handleIllegalParameter() Called if this fails.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			validate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$filter</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$payload</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the parameter. This is used for error reporting.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filter</span><span class="var-description">: The name (AS A STRING) of the filter to run. See   <a href="../../Fortissimo/Core/BaseFortissimoCommandParameter.html#methodaddFilter">BaseFortissimoCommandParameter::addFilter()</a> for a list of names,   or consult the PHP documentation for filters.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$payload</span><span class="var-description">: The value to be validated.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$options</span><span class="var-description">: Typically, this is either an array or an ORed list of constants.   See the PHP documentation for possible options.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 04 Jan 2010 20:20:27 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

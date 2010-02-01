@@ -34,4 +34,13 @@ abstract class BaseLanternCommand extends BaseFortissimoCommand {
     return $db;
   }
   
+  protected function basePath() {
+    global $base;
+    return $base;
+  }
+  
+  protected function baseUri() {
+    return $_SERVER['PHP_SELF'];
+  }
+  
 }

@@ -33,14 +33,21 @@
     <cmd group="bootstrap"/>
     
     
+    
+    
+    <cmd name="tpl" invoke="LanternRenderMainHTML">
+      <!-- param name="variables" from=""/-->
+      <param name="template">tpl/main.tpl.php</param>
+      <param name="themeDir">themes/vanilla</param>
+    </cmd>
+    
     <cmd name="dump" invoke="FortissimoContextDump">
       <param name="html">true</param>
       <!--param name="item">db</param-->
     </cmd>
     
-    
-    <cmd name="echo" invoke="FortissimoEcho">
-      <param name="text">Fortissimo has been successfully installed.</param>
+    <cmd name="sendToOut" invoke="LanternOutput">
+      <param name="buffer" from="cxt:tpl"/>
     </cmd>
     
   </request>

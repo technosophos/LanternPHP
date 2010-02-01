@@ -5,6 +5,9 @@
   <include path="test/Tests"/>  
   -->
   
+  <!--
+  Bootstrap sequence.
+  -->
   <group name="bootstrap">
     <cmd name="lanternDB" invoke="LanternDB">
       <!--param name="server">mongodb://user:pass@localhost:27017</param-->
@@ -17,10 +20,39 @@
     <cmd name="init" invoke="LanternInitialize"/>
   </group>
   
+  <!--
+  Send formatted data to the client.
+  -->
+  <group name="output">
+    <cmd name="tpl" invoke="LanternRenderMainHTML">
+      <!-- param name="variables" from=""/-->
+      <param name="template">tpl/main.tpl.php</param>
+      <param name="themeDir">themes/vanilla</param>
+    </cmd>
+
+    <!--
+    <cmd name="dump" invoke="FortissimoContextDump">
+      <param name="html">true</param>
+    </cmd>
+    -->
+
+    
+    <cmd name="sendToOut" invoke="LanternOutput">
+      <param name="buffer" from="cxt:tpl"/>
+    </cmd>
+  </group>
+  
+  <!--
+  Installer.
+  -->
   <request name="install">
     <cmd name="mainInstaller" invoke="LanternInstaller"/>
+    <cmd group="output"/>
   </request>
   
+  <!--
+  Uninstaller
+  -->
   <request name="uninstall">
     <cmd group="bootstrap"/>
     <cmd name="uninstallAll" invoke="LanternUninstall"/>
@@ -35,21 +67,8 @@
     
     
     
-    <cmd name="tpl" invoke="LanternRenderMainHTML">
-      <!-- param name="variables" from=""/-->
-      <param name="template">tpl/main.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
-    </cmd>
     
-    <cmd name="dump" invoke="FortissimoContextDump">
-      <param name="html">true</param>
-      <!--param name="item">db</param-->
-    </cmd>
-    
-    <cmd name="sendToOut" invoke="LanternOutput">
-      <param name="buffer" from="cxt:tpl"/>
-    </cmd>
-    
+    <cmd group="output"/>
   </request>
   
   <!-- Logs directly into STDOUT (the browser, the console). -->

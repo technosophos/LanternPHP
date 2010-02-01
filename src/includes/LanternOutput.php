@@ -30,7 +30,7 @@ class LanternOutput extends BaseLanternCommand {
     return $this
       ->description('Send the contents of the given buffer(s) to STD OUT.')
       ->usesParam('buffer', 'The buffer to send to Standard Out')
-      ->withFilter('string')
+      //->withFilter('string') // FIXME: Needs to allow HTML.
       ;
   }
   

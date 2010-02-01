@@ -16,7 +16,7 @@ class LanternUninstall extends BaseLanternCommand {
     $this->db()->users->drop();
     $this->db()->sources->drop();
     $this->db()->notes->drop();
-    $this->db()->Sources->drop();
+    $this->db()->journal->drop();
     
     print 'All data has been deleted.';
   }

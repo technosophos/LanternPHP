@@ -4,7 +4,7 @@
  */
 
 /**
- * 
+ * Render the main template into HTML.
  */
 class LanternRenderMainHTML extends LanternRender {
   protected function processVariables(&$variables) {

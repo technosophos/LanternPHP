@@ -9,6 +9,13 @@
  * Base class for Lantern commands.
  */
 abstract class BaseLanternCommand extends BaseFortissimoCommand {
+  
+  /**
+   * @var array
+   * Convenience filter array definition to provide HTML filtering. Causes a
+   * callback filter to execute {@link Util::filterHTML()}.
+   */
+  protected $filterHTML = array('options' => array('Util', 'filterHTML'));
 
   /**
    * Get the current Mongo database (not the connection).

@@ -71,6 +71,25 @@
     <cmd group="output"/>
   </request>
   
+  <request name="save-journal">    
+    <!-- Invoke all commands in the bootstrap group. -->
+    <cmd group="bootstrap"/>
+    
+    <cmd name="savedEntry" invoke="LanternSaveJournal">
+      <param name="title">My First Entry</param>
+      <param name="entry">This is a test entry body.</param>
+      <param name="tags">a, b, cde</param>
+    </cmd>
+    
+    <cmd name="body" invoke="LanternRender">
+      <param name="variables" from="cxt:savedEntry"/>
+      <param name="template">tpl/journal.tpl.php</param>
+      <param name="themeDir">themes/vanilla</param>
+    </cmd>
+    
+    <cmd group="output"/>
+  </request>
+  
   <!-- Logs directly into STDOUT (the browser, the console). -->
   <logger name="foil" invoke="FortissimoOutputInjectionLogger"/>
   

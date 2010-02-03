@@ -27,4 +27,9 @@ class Util {
     return sprintf('<a href="%s">%s</a>', $url, $str);
   }
   
+  public static function filterHTML($content) {
+    
+    return $content;
+  }
+  
 }

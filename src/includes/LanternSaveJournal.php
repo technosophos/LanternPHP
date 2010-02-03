@@ -20,9 +20,11 @@ class LanternSaveJournal extends BaseLanternCommand {
       
       ->usesParam('createdOn', 'Timestamp on which this was created (default: leave alone existing date, or add today for a new item.)')
       ->withFilter('int')
+      ->whichHasDefault(0)
       
       ->usesParam('modifiedOn', 'Timestamp for last modification date (default: today)')
       ->withFilter('int')
+      ->whichHasDefault(FORTISSIMO_REQ_TIME)
       
       ->usesParam('createdBy', 'ID of the user creating this entry.')
       ->withFilter('string')
@@ -39,7 +41,7 @@ class LanternSaveJournal extends BaseLanternCommand {
   }
   
   public function doCommand() {
-    
+
     $id = $this->param('entryID', NULL);
     
     if (!empty($id)) {
@@ -48,16 +50,20 @@ class LanternSaveJournal extends BaseLanternCommand {
     else {
       $obj = $this->saveNewEntry();
     }
+    
+    return $obj;
   }
   
   public function saveNewEntry() {
+    
+    $created = $this->param('createdOn');
     
     $entry = array(
       'title' => $this->param('title', 'Untitled'),
       'entry' => $this->param('entry', ''),
       'tags' => explode(',', $this->param('entry', '')),
-      'createdOn' => $this->param('createdOn', FORTISSIMO_REQ_DATE),
-      'modifiedOn' => $this->param('modifiedOn', FORTISSIMO_REQ_DATE),
+      'createdOn' => $created > 0 ? $created : FORTISSIMO_REQ_TIME,
+      'modifiedOn' => $this->param('modifiedOn'),
       'createdBy' => $this->param('createdBy', 1),
     );
     
@@ -68,7 +74,7 @@ class LanternSaveJournal extends BaseLanternCommand {
   }
   
   public function modifyExistingEntry($id) {
-    $entry = $this->findOne(array('_id' => $id));
+    $entry = $this->db()->journal->findOne(array('_id' => new MongoId($id)));
     
     if (empty($entry)) {
       if ($this->param('insertOnFailedModify', FALSE)) {
@@ -82,12 +88,12 @@ class LanternSaveJournal extends BaseLanternCommand {
     $entry['title'] = $this->param('title', 'Untitled');
     $entry['entry'] = $this->param('entry', '');
     $entry['tags'] = explode(',', $this->param('tags', ''));
-    $entry['modifiedOn'] = $this->param('modifiedOn', FORTISSIMO_REQ_DATE);
+    $entry['modifiedOn'] = $this->param('modifiedOn', FORTISSIMO_REQ_TIME);
     
     $createdOn = $this->param('createdOn');
     if (!empty($createdOn)) $entry['createdOn'] = $createdOn;
     
-    $this->db()->journal->update($entry);
+    $this->db()->journal->save($entry);
     
     return $entry;
   }

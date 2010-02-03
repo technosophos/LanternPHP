@@ -76,10 +76,17 @@
     <cmd group="bootstrap"/>
     
     <cmd name="savedEntry" invoke="LanternSaveJournal">
-      <param name="title">My First Entry</param>
+      <param name="title">My Second Entry</param>
       <param name="entry">This is a test entry body.</param>
       <param name="tags">a, b, cde</param>
+      <param name="entryID">4b68fdbb8ead0e103d020000</param>
     </cmd>
+    
+    <!--
+    <cmd name="dump" invoke="FortissimoContextDump">
+      <param name="html">true</param>
+    </cmd>
+    -->
     
     <cmd name="body" invoke="LanternRender">
       <param name="variables" from="cxt:savedEntry"/>

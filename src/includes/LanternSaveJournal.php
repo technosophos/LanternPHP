@@ -57,10 +57,11 @@ class LanternSaveJournal extends BaseLanternCommand {
   public function saveNewEntry() {
     
     $created = $this->param('createdOn');
-    
+    $text = $this->param('entry', '');
     $entry = array(
       'title' => $this->param('title', 'Untitled'),
-      'entry' => $this->param('entry', ''),
+      'entry' => Markdown($text),
+      'entry_mdown' => $text,
       'tags' => explode(',', $this->param('entry', '')),
       'createdOn' => $created > 0 ? $created : FORTISSIMO_REQ_TIME,
       'modifiedOn' => $this->param('modifiedOn'),
@@ -85,8 +86,11 @@ class LanternSaveJournal extends BaseLanternCommand {
       }
     }
     
+    $text = $this->param('entry', '');
+    
     $entry['title'] = $this->param('title', 'Untitled');
-    $entry['entry'] = $this->param('entry', '');
+    $entry['entry'] = Markdown($text);
+    $entry['entry_mdown'] = $text;
     $entry['tags'] = explode(',', $this->param('tags', ''));
     $entry['modifiedOn'] = $this->param('modifiedOn', FORTISSIMO_REQ_TIME);
     

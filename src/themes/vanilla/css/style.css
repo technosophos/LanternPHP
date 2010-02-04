@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+}
+
+form {
+  
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+  clear: both;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+input[type=text], textarea {
+  background-color: #EFEFFF;
+  -moz-border-radius: 5px;
+  border: 2px solid #777;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-family: sans-serif;
+  padding-top: 7px;
+}
+
+input[type=submit], input[type=button] {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.input-title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.help {
+  color: #777;
+  border: 1px dotted #aaa;
+  font-size: .8em;
+  padding: 3px 4px 4px 3px;
+}
+
+.edit-journal-wrapper {
+  width: 800px;
+  border: 1px solid #efefef;
+  padding: 5px;
+}

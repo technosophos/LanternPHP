@@ -2,6 +2,8 @@
 /**
  * Utilities.
  */
+
+require_once 'lib/markdown.php';
  
 class Util {
   
@@ -30,6 +32,10 @@ class Util {
   public static function filterHTML($content) {
     
     return $content;
+  }
+
+  public static function markdown($text) {
+    return Markdown($text);
   }
   
 }

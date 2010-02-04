@@ -110,7 +110,9 @@ class LanternRenderMainHTML extends LanternRender {
   }
   
   protected function generateStyles($cssFiles) {
-    if (is_string($cssFiles)) return $cssFiles;
+    if (is_string($cssFiles)) {
+      $cssFiles = array($cssFiles);
+    }
     
     // Else create link tags...
     $t = '<link rel="stylesheet" type="text/css" href="%s"/>';

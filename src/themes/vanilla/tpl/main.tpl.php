@@ -24,6 +24,15 @@
 	<?php print $inline_scripts; ?>
 </head>
 <body class="<?php print $bodyclasses; ?>">
+  <div class="main-div">
+    <div class="main-nav">
+      <a href="<?php print Util::url('default'); ?>">Home</a>
+      <a href="<?php print Util::url('notes'); ?>">Notes</a>
+      <a href="<?php print Util::url('sources'); ?>">Sources</a>
+      <a href="<?php print Util::url('journal'); ?>">Journal</a>
+    </div>
+  
   <?php print $body; ?>
+  </div>
 </body>
 </html>

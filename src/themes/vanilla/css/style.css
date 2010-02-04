@@ -1,9 +1,11 @@
 body {
   font-family: sans-serif;
+  background-color: #eee;
 }
 
 form {
-  
+  -moz-border-radius: 5px;
+  background-color: white;
 }
 
 label {
@@ -42,7 +44,28 @@ input[type=submit], input[type=button] {
 }
 
 .edit-journal-wrapper {
-  width: 800px;
+  /*width: 800px;*/
   border: 1px solid #efefef;
   padding: 5px;
+}
+
+.main-nav > a {
+  color: black;
+  background-color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #FFF;
+  border-right: 2px solid #DDD;
+  border-bottom: 2px solid #DDD;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  -moz-border-radius: 5px;
+}
+
+.main-nav {
+  margin-bottom: 15px;
+  margin-top: 15px;
 }

@@ -18,6 +18,9 @@
       <param name="databaseConnection" from="cxt:lanternDB"/>
     </cmd>
     <cmd name="init" invoke="LanternInitialize"/>
+    <cmd name="defaultStyle" invoke="LanternAddToContext">
+      <param name="styles">themes/vanilla/css/style.css</param>
+    </cmd>
   </group>
   
   <!--
@@ -74,10 +77,6 @@
   <request name="edit-journal">
     <cmd group="bootstrap"/>
     
-    <cmd name="cxtMod" invoke="LanternAddToContext">
-      <param name="head_title">Foo</param>
-      <param name="styles">themes/vanilla/css/style.css</param>
-    </cmd>
     
     <cmd name="body" invoke="LanternRender">
       <param name="template">tpl/journal_edit.tpl.php</param>

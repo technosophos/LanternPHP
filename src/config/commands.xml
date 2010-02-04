@@ -86,15 +86,20 @@
     <cmd group="output"/>
   </request>
   
-  <request name="save-journal">    
+  <request name="save-journal">
     <!-- Invoke all commands in the bootstrap group. -->
     <cmd group="bootstrap"/>
     
     <cmd name="savedEntry" invoke="LanternSaveJournal">
+      <param name="title" from="post:title"/>
+      <param name="entry" from="post:entry"/>
+      <param name="tags" from="post:tags"/>
+      <!--
       <param name="title">My Second Entry</param>
       <param name="entry">This is a *test* entry body.</param>
       <param name="tags">a, b, cde</param>
       <param name="entryID">4b68fdbb8ead0e103d020000</param>
+      -->
     </cmd>
     
     <!--

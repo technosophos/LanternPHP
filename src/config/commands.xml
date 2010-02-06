@@ -114,6 +114,42 @@
       <param name="themeDir">themes/vanilla</param>
     </cmd>
     
+    
+    <cmd group="output"/>
+  </request>
+  
+  <request name="journals">
+    <!-- Invoke all commands in the bootstrap group. -->
+    <cmd group="bootstrap"/>
+
+    <cmd name="journals" invoke="LanternFind">
+      <param name="collection">journal</param>
+      <param name="filter">{}</param>
+    </cmd>
+    
+    <cmd name="body" invoke="LanternRender">
+      <!--param name="variables" from="cxt:entry"/-->
+      <param name="template">tpl/journals.tpl.php</param>
+      <param name="themeDir">themes/vanilla</param>
+    </cmd>
+    
+    <cmd group="output"/>
+  </request>
+  
+  <request name="read-journal">
+    <!-- Invoke all commands in the bootstrap group. -->
+    <cmd group="bootstrap"/>
+    
+    <cmd name="entry" invoke="LanternReadJournal">
+      <param name="entryId" from="get:entryId"/>
+    </cmd>
+    
+    <cmd name="body" invoke="LanternRender">
+      <param name="variables" from="cxt:entry"/>
+      <param name="template">tpl/journal.tpl.php</param>
+      <param name="themeDir">themes/vanilla</param>
+    </cmd>
+    
     <cmd group="output"/>
   </request>
   

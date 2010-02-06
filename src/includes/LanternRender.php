@@ -93,6 +93,11 @@ class LanternRender extends BaseLanternCommand {
    *  The rendered contents of the template.
    */
   protected function loadTemplate($template, &$variables) {
+    
+    if (!is_array($variables)) {
+      throw new FortissimoException('Template variables are not an array.');
+    }
+    
     extract($variables, EXTR_SKIP);
     
     ob_start();

@@ -12,13 +12,31 @@
  */
 LanternRenderMainHTML::setTitle($title);
 LanternRenderMainHTML::AddBodyClass('journal-entry-page');
+
+$bc = TPL::breadcrumbs(array(
+  Util::url('default') => 'Lantern',
+  Util::url('journals') => 'Journal',
+  Util::url('read-journal', array('entryId' => (string)$_id)) => $title,
+));
+print $bc;
 ?>
 <div class="journal-entry">
   <h1 class="journal-entry-title"><?php print $title; ?></h1>
-  <div class="journal-created-on journal-date">Created on: <?php print date('r', $createdOn); ?></div>
-  <div class="journal-modified-on journal-date">Last modified on: <?php print date('r', $modifiedOn); ?></div>
   <div class="journal-entry-body"><?php print $entry; ?></div>
   <div class="journal-tags"><?php implode($tags); ?></div>
-  <div class="journal-id">(<?php print $_id; ?>)</div>
+  <table class="metadata">
+    <tr>
+      <th>Created on</th>
+      <td><?php print date(TPL::longDateTime, $createdOn); ?></td>
+    </tr>
+    <tr>
+      <th>Modified on</th>
+      <td><?php print date(TPL::longDateTime, $modifiedOn); ?></td>
+    </tr>
+    <tr>
+      <th>Entry ID</th>
+      <td><?php print $_id; ?></td>
+    </tr>
+  </table>
 </div>
 

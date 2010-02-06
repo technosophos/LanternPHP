@@ -2,6 +2,8 @@
 /**
  * Edit a journal entry.
  */
+ 
+ //if (!empty($body)) print $body;
 ?>
 <form action="<?php print Util::url('save-journal')?>" method="POST" class="edit-journal-wrapper">
   <div class="edit-journal-title-wrapper">
@@ -11,7 +13,10 @@
   <div class="edit-journal-entry-wrapper">
     <label>Entry</label>
     <textarea name="entry" cols="80" rows="30"></textarea>
-    <p class="help">The text of the entry. <a href="http://michelf.com/projects/php-markdown/concepts/">markdown</a> formatting can be used.</p>
+    <p class="help">The text of the entry. <a 
+    href="http://michelf.com/projects/php-markdown/concepts/">markdown</a> 
+    formatting can be used, along with certain <a 
+    href="http://michelf.com/projects/php-markdown/extra/">extras</a>.</p>
   </div>
   <div class="edit-journal-tags-wrapper">
     <label>Tags</label>

@@ -25,14 +25,17 @@
 </head>
 <body class="<?php print $bodyclasses; ?>">
   <div class="main-div">
+    <div class="main-logo"></div>
     <div class="main-nav">
       <a href="<?php print Util::url('default'); ?>">Home</a>
       <a href="<?php print Util::url('notes'); ?>">Notes</a>
       <a href="<?php print Util::url('sources'); ?>">Sources</a>
-      <a href="<?php print Util::url('journal'); ?>">Journal</a>
+      <a href="<?php print Util::url('journals'); ?>">Journal</a>
     </div>
-  
-  <?php print $body; ?>
+    <h1 class="page-title"><?php print isset($title) ? $title : $head_title; ?></h1>
+    <div class="body-div">
+    <?php print $body; ?>
+    </div>
   </div>
 </body>
 </html>

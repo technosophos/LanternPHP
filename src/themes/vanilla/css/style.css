@@ -3,6 +3,30 @@ body {
   background-color: #eee;
 }
 
+.body-div {
+  -moz-border-radius: 5px;
+  background-color: white;
+  padding: 15px;
+}
+
+/*
+.main-logo {
+  background-image: url(../images/LanternLogo103x123.png);
+  width: 103px;
+  height: 123px;
+  float: left;
+}
+*/
+
+h1.page-title {
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 5px;
+}
+
 form {
   -moz-border-radius: 5px;
   background-color: white;
@@ -31,6 +55,37 @@ input[type=submit], input[type=button] {
   font-weight: bold;
 }
 
+th {
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1.1em ;
+}
+
+tr.even {
+  background-color: white;
+}
+tr.odd {
+  background-color: #fafafa;
+}
+
+td, th {
+  padding: 4px;
+  padding-top: 6px;
+  -moz-border-radius: 5px;
+}
+
+table.metadata {
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  -moz-border-radius: 5px;
+}
+
+table.metadata th, table.metadata td {
+  font-size: 0.8em;
+}
+
 .input-title {
   font-size: 1.3em;
   font-weight: bold;
@@ -47,6 +102,18 @@ input[type=submit], input[type=button] {
   /*width: 800px;*/
   border: 1px solid #efefef;
   padding: 5px;
+}
+
+.main-nav {
+  /*float: right;*/
+  position: fixed;
+  right: 10px;
+  top: 0px;
+  background: #efefef;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-border-radius: 5px;
+  border: 1px solid #ddd;
 }
 
 .main-nav > a {

@@ -62,7 +62,7 @@ class LanternSaveJournal extends BaseLanternCommand {
       'title' => $this->param('title', 'Untitled'),
       'entry' => Markdown($text),
       'entry_mdown' => $text,
-      'tags' => explode(',', $this->param('entry', '')),
+      'tags' => explode(',', $this->param('tags', '')),
       'createdOn' => $created > 0 ? $created : FORTISSIMO_REQ_TIME,
       'modifiedOn' => $this->param('modifiedOn'),
       'createdBy' => $this->param('createdBy', 1),

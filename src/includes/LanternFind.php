@@ -16,11 +16,11 @@ class LanternFind extends BaseLanternCommand {
   public function expects() {
     return $this
       ->description('Search a Mongo collection and store the results in the context.')
-      ->usesParam('collection', 'The name of the collection.')
+      ->usesParam('collection', 'The name of the collection. If not specified, default is used.')
       ->withFilter('string')
-      ->whichIsRequired()
       ->usesParam('filter', 'A JSON-formatted filter. See the mongodb.org documentation.')
-      ->withFilter('callback', array('options' => 'json_decode'))
+      //->withFilter('callback', array('options' => 'json_decode'))
+      ->withFilter('callback', array('options' => array($this, 'parseFilter')))
       ->whichHasDefault('{}')
       ->usesParam('fields', 'A comma-separated list of fields. If none is specified, all fields will be returned.')
       ->withFilter('string')
@@ -28,19 +28,25 @@ class LanternFind extends BaseLanternCommand {
     ;
   }
   
+  public function parseFilter($data) {
+    return json_decode($data, TRUE);
+  }
+  
   public function doCommand() {
-    $collection = $this->param('collection');
-    $filter = (array)$this->param('filter');
-    $fields = explode(',', $this->param('fields', ''));
+    $filter = $this->param('filter');
+    $fields = explode(',', $this->param('fields', NULL));
+    $collection =  $this->param('collection', NULL);
     
-    $c =  $this->db()->$collection;
+    $c = empty($collection) ? $this->collection() : $this->db()->$collection;
     
     if (empty($filter)) {
       return $c->find();
     }
     
     // It is undocumented what is returned when $fields is empty.
-    return empty($fields) ? $c->find($filter) : $c->find($filter, $fields); 
+    return (empty($fields) || empty($fields[0])) 
+      ? $c->find($filter) 
+      : $c->find($filter, $fields); 
   }
   
 }

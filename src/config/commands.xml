@@ -5,6 +5,10 @@
   <include path="test/Tests"/>  
   -->
   
+  <!-- ========================================== 
+        GROUPS
+       ========================================== -->
+  
   <!--
   Bootstrap sequence.
   -->
@@ -17,9 +21,12 @@
       <param name="databaseName">LanternNotes</param>
       <param name="databaseConnection" from="cxt:lanternDB"/>
     </cmd>
-    <cmd name="init" invoke="LanternInitialize"/>
+    <cmd name="init" invoke="LanternInitialize">
+      <param name="collection">notes</param>
+    </cmd>
     <cmd name="defaultStyle" invoke="LanternAddToContext">
       <param name="styles">themes/vanilla/css/style.css</param>
+      <param name="theme">themes/vanilla</param>
     </cmd>
   </group>
   
@@ -32,24 +39,27 @@
       <param name="template">tpl/main.tpl.php</param>
       <param name="themeDir">themes/vanilla</param>
     </cmd>
-
+    <cmd name="sendToOut" invoke="LanternOutput">
+      <param name="buffer" from="cxt:tpl"/>
+    </cmd>
     <!--
     <cmd name="dump" invoke="FortissimoContextDump">
       <param name="html">true</param>
     </cmd>
     -->
-
-    
-    <cmd name="sendToOut" invoke="LanternOutput">
-      <param name="buffer" from="cxt:tpl"/>
-    </cmd>
   </group>
+  
+  <!-- ==========================================
+        INSTALLER/UNINSTALLER
+       ========================================== -->
   
   <!--
   Installer.
   -->
   <request name="install">
-    <cmd name="mainInstaller" invoke="LanternInstaller"/>
+    <cmd name="mainInstaller" invoke="LanternInstaller">
+      <param name="collections" from="cxt:collections">notes</param>
+    </cmd>
     <cmd group="output"/>
   </request>
   
@@ -60,16 +70,34 @@
     <cmd group="bootstrap"/>
     <cmd name="uninstallAll" invoke="LanternUninstall"/>
   </request>
-     
+
+
+  <!-- ==========================================
+        GENERAL REQUESTS
+       ========================================== -->   
      
   <!-- The default request will be executed when the index is loaded. -->
   <request name="default">    
     <!-- Invoke all commands in the bootstrap group. -->
     <cmd group="bootstrap"/>
     
+    <cmd name="recent" invoke="LanternFind">
+      <!-- param name="filter">{}</param -->
+    </cmd>
+    <cmd name="sortRecent" invoke="LanternSort">
+      <param name="cursor" from="cxt:recent"/>
+      <param name="criteria">{"modifiedOn":-1}</param>
+    </cmd>
+    <cmd name="limitRecent" invoke="LanternPager">
+      <param name="cursor" from="cxt:recent"/>
+      <param name="limit">25</param>
+      <param name="skip" from="get:offset">0</param>
+    </cmd>
     
-    
-    
+    <cmd name="body" invoke="LanternRender">
+      <param name="template">tpl/home_list.tpl.php</param>
+      <param name="themeDir" from="cxt:theme"/>
+    </cmd>
     
     <cmd group="output"/>
   </request>
@@ -80,7 +108,7 @@
     
     <cmd name="body" invoke="LanternRender">
       <param name="template">tpl/article_edit.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
+      <param name="themeDir" from="cxt:theme">themes/vanilla</param>
     </cmd>
     
     <cmd group="output"/>
@@ -89,18 +117,17 @@
   
   <request name="edit-journal">
     <cmd group="bootstrap"/>
-    
-    
+    <cmd name="defaultStyle" invoke="LanternAddToContext">
+      <param name="title">Journal Entry</param>
+    </cmd>
     <cmd name="body" invoke="LanternRender">
       <param name="template">tpl/journal_edit.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
+      <param name="themeDir" from="cxt:theme">themes/vanilla</param>
     </cmd>
-    
     <cmd group="output"/>
   </request>
   
   <request name="save-journal">
-    <!-- Invoke all commands in the bootstrap group. -->
     <cmd group="bootstrap"/>
     
     <cmd name="savedEntry" invoke="LanternSaveJournal">
@@ -115,35 +142,26 @@
       -->
     </cmd>
     
-    <!--
-    <cmd name="dump" invoke="FortissimoContextDump">
-      <param name="html">true</param>
-    </cmd>
-    -->
-    
     <cmd name="body" invoke="LanternRender">
       <param name="variables" from="cxt:savedEntry"/>
       <param name="template">tpl/journal.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
+      <param name="themeDir" from="cxt:theme">themes/vanilla</param>
     </cmd>
-    
     
     <cmd group="output"/>
   </request>
   
   <request name="journals">
-    <!-- Invoke all commands in the bootstrap group. -->
     <cmd group="bootstrap"/>
 
     <cmd name="journals" invoke="LanternFind">
-      <param name="collection">journal</param>
-      <param name="filter">{}</param>
+      <param name="filter">{"lanternType": "journal"}</param>
     </cmd>
-    
+
     <cmd name="body" invoke="LanternRender">
       <!--param name="variables" from="cxt:entry"/-->
       <param name="template">tpl/journals.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
+      <param name="themeDir" from="cxt:theme"/>
     </cmd>
     
     <cmd group="output"/>
@@ -160,7 +178,7 @@
     <cmd name="body" invoke="LanternRender">
       <param name="variables" from="cxt:entry"/>
       <param name="template">tpl/journal.tpl.php</param>
-      <param name="themeDir">themes/vanilla</param>
+      <param name="themeDir"  from="cxt:theme">themes/vanilla</param>
     </cmd>
     
     <cmd group="output"/>

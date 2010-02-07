@@ -25,4 +25,27 @@ class TPL {
     
     return implode($sep, $buff);
   }
+  
+  public static function tags($tags) {
+    if (empty($tags)) return '';
+    
+    $links = array();
+    foreach ($tags as $tag) {
+      $url = Util::url('tag', array('t' => $tag));
+      $links[] = sprintf('<a href="%s">%s</a>', $url, $tag);
+    }
+    
+    return implode(', ', $links);
+  }
+  
+  public static function snip($text, $maxChars = 25) {
+    $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    
+    $len = strlen($text);
+    if ($len > $maxChars) {
+      $whitespace = strrpos($text, ' ', ($maxChars - 1 - $len));
+      $text = substr($text, 0, $whitespace) . '&hellip;';
+    }
+    return $text;
+  }
 }

@@ -21,6 +21,6 @@ class LanternReadJournal extends BaseLanternCommand {
   
   public function doCommand() {
     $id = $this->param('entryId');
-    return $this->db()->journal->findOne(array('_id' => new MongoId($id)));
+    return $this->collection()->findOne(array('_id' => new MongoId($id)));
   }
 }

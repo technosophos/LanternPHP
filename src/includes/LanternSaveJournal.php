@@ -59,23 +59,28 @@ class LanternSaveJournal extends BaseLanternCommand {
     $created = $this->param('createdOn');
     $text = $this->param('entry', '');
     $entry = array(
+      'lanternType' => self::TYPE_JOURNAL,
       'title' => $this->param('title', 'Untitled'),
       'entry' => Markdown($text),
-      'entry_mdown' => $text,
-      'tags' => explode(',', $this->param('tags', '')),
-      'createdOn' => $created > 0 ? $created : FORTISSIMO_REQ_TIME,
-      'modifiedOn' => $this->param('modifiedOn'),
+      'entry_raw' => $text,
+      'entry_format' => 'Markdown',
+      'tags' => $this->explodeTags($this->param('tags', '')),
+      'createdOn' => new MongoDate($created > 0 ? $created : FORTISSIMO_REQ_TIME),
+      'modifiedOn' => new MongoDate($this->param('modifiedOn')),
       'createdBy' => $this->param('createdBy', 1),
     );
     
     // This modifies $entry by ref, and adds _id.
-    $this->db()->journal->insert($entry);
+    $this->collection()->insert($entry);
     
     return $entry;
   }
   
   public function modifyExistingEntry($id) {
-    $entry = $this->db()->journal->findOne(array('_id' => new MongoId($id)));
+    $entry = $this->collection()->findOne(array(
+      '_id' => new MongoId($id), 
+      'lanternType' => self::TYPE_JOURNAL
+    ));
     
     if (empty($entry)) {
       if ($this->param('insertOnFailedModify', FALSE)) {
@@ -88,16 +93,20 @@ class LanternSaveJournal extends BaseLanternCommand {
     
     $text = $this->param('entry', '');
     
+    $modified = new MongoDate($this->param('modifiedOn', FORTISSIMO_REQ_TIME));
+    $createdOn = $this->param('createdOn');
+    
     $entry['title'] = $this->param('title', 'Untitled');
     $entry['entry'] = Markdown($text);
     $entry['entry_mdown'] = $text;
     $entry['tags'] = explode(',', $this->param('tags', ''));
-    $entry['modifiedOn'] = $this->param('modifiedOn', FORTISSIMO_REQ_TIME);
+    $entry['modifiedOn'] = $modified;
     
-    $createdOn = $this->param('createdOn');
-    if (!empty($createdOn)) $entry['createdOn'] = $createdOn;
+    // Only save creation date if it is explicitly set.
+    // Otherwise, we leave it alone.
+    if (!empty($createdOn)) $entry['createdOn'] = new MongoDate($createdOn);
     
-    $this->db()->journal->save($entry);
+    $this->collection()->save($entry);
     
     return $entry;
   }

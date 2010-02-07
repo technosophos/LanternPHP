@@ -4,6 +4,7 @@
  */
  
  //if (!empty($body)) print $body;
+LanternRenderMainHTML::setTitle($title);
 ?>
 <form action="<?php print Util::url('save-journal')?>" method="POST" class="edit-journal-wrapper">
   <div class="edit-journal-title-wrapper">

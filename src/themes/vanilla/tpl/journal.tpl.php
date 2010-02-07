@@ -23,15 +23,15 @@ print $bc;
 <div class="journal-entry">
   <h1 class="journal-entry-title"><?php print $title; ?></h1>
   <div class="journal-entry-body"><?php print $entry; ?></div>
-  <div class="journal-tags"><?php implode($tags); ?></div>
+  <div class="journal-tags"><?php print TPL::tags($tags); ?></div>
   <table class="metadata">
     <tr>
       <th>Created on</th>
-      <td><?php print date(TPL::longDateTime, $createdOn); ?></td>
+      <td><?php print date(TPL::longDateTime, $createdOn->sec); ?></td>
     </tr>
     <tr>
       <th>Modified on</th>
-      <td><?php print date(TPL::longDateTime, $modifiedOn); ?></td>
+      <td><?php print date(TPL::longDateTime, $modifiedOn->sec); ?></td>
     </tr>
     <tr>
       <th>Entry ID</th>

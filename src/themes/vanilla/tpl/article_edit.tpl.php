@@ -48,6 +48,9 @@
     to
     <input type="text" name="pages_end" value="" size="5" id="pages_end">
     
+    <label for="tags">Tags</label>
+    <input type="text" name="tags" value="" size="60" id="tags">
+    <p class="help">Separate tags with commas.</p>
     
   </fieldset>
   
@@ -81,10 +84,6 @@
     <textarea name="abstract" rows="8" cols="60"></textarea>
     
   </fieldset>
-  
-  <label for="tags">Tags</label>
-  <input type="text" name="tags" value="" size="60" id="tags">
-  <p class="help">Separate tags with commas.</p>
   
   <label>About this entry</label>
   <textarea name="notes_on_reference" rows="8" cols="60"></textarea>

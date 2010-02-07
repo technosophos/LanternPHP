@@ -10,6 +10,17 @@
  */
 abstract class BaseLanternCommand extends BaseFortissimoCommand {
   
+  const TYPE_UNKNOWN = 'unknown';
+  const TYPE_NOTE = 'note';
+  const TYPE_SOURCE = 'source';
+  const TYPE_JOURNAL = 'journal';
+  
+  /**
+   * User-defined types should use this type, and
+   * should set a subtype for additional specification.
+   */
+  const TYPE_USER_DEFINED = 'user_defined';
+  
   /**
    * @var array
    * Convenience filter array definition to provide HTML filtering. Causes a
@@ -41,6 +52,26 @@ abstract class BaseLanternCommand extends BaseFortissimoCommand {
     return $db;
   }
   
+  protected function collection($name = NULL) {
+    
+    // Get the default collection.
+    if (empty($name)) {
+      $name = $this->context->get('collection', NULL);
+      if (empty($name)) {
+        throw new FortissimoInterruptException('No default collection has been specified.');
+      }
+    }
+    
+    // Look up the named colleciton.
+    $collection = $this->db()->selectCollection($name);
+    if (!is_object($collection)) {
+      throw new FortissimoInterruptException(
+        sprintf('The named collection "%s" could not be found.', htmlentities($name))
+      );
+    }
+    return $collection;
+  }
+  
   protected function basePath() {
     global $base;
     return $base;
@@ -48,6 +79,10 @@ abstract class BaseLanternCommand extends BaseFortissimoCommand {
   
   protected function baseUri() {
     return $_SERVER['PHP_SELF'];
+  }
+  
+  protected function explodeTags($string) {
+    return array_map('trim', explode(',', $string));
   }
   
 }

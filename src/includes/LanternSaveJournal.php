@@ -29,7 +29,7 @@ class LanternSaveJournal extends BaseLanternCommand {
       ->usesParam('createdBy', 'ID of the user creating this entry.')
       ->withFilter('string')
       
-      ->usesParam('entryID', 'The ID of an entry. If this is set, the existing entry will be modified. Otherwise one will be generated.')
+      ->usesParam('entryId', 'The ID of an entry. If this is set, the existing entry will be modified. Otherwise one will be generated.')
       ->withFilter('string')
       
       ->usesParam('insertOnFailedModify', 'If an ID is passed and the record is not found, setting this to TRUE will cause '
@@ -42,12 +42,13 @@ class LanternSaveJournal extends BaseLanternCommand {
   
   public function doCommand() {
 
-    $id = $this->param('entryID', NULL);
+    $id = $this->param('entryId', NULL);
     
     if (!empty($id)) {
       $obj = $this->modifyExistingEntry($id);
     }
     else {
+      throw new Exception('No IDea.');
       $obj = $this->saveNewEntry();
     }
     

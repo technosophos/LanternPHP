@@ -120,7 +120,12 @@
     <cmd name="defaultStyle" invoke="LanternAddToContext">
       <param name="title">Journal Entry</param>
     </cmd>
+    <cmd name="journalEntry" invoke="LanternEdit">
+      <param name="entryId" from="get:entryId"/>
+      <param name="lanternType">Journal</param>
+    </cmd>
     <cmd name="body" invoke="LanternRender">
+      <param name="variables" from="cxt:journalEntry"/>
       <param name="template">tpl/journal_edit.tpl.php</param>
       <param name="themeDir" from="cxt:theme">themes/vanilla</param>
     </cmd>
@@ -131,6 +136,7 @@
     <cmd group="bootstrap"/>
     
     <cmd name="savedEntry" invoke="LanternSaveJournal">
+      <param name="entryId" from="post:entryId"/>
       <param name="title" from="post:title"/>
       <param name="entry" from="post:entry"/>
       <param name="tags" from="post:tags"/>
@@ -155,7 +161,7 @@
     <cmd group="bootstrap"/>
 
     <cmd name="journals" invoke="LanternFind">
-      <param name="filter">{"lanternType": "journal"}</param>
+      <param name="filter">{"lanternType": "Journal"}</param>
     </cmd>
 
     <cmd name="body" invoke="LanternRender">
@@ -171,8 +177,9 @@
     <!-- Invoke all commands in the bootstrap group. -->
     <cmd group="bootstrap"/>
     
-    <cmd name="entry" invoke="LanternReadJournal">
+    <cmd name="entry" invoke="LanternRead">
       <param name="entryId" from="get:entryId"/>
+      <!-- param name="lanternType">Journal</param -->
     </cmd>
     
     <cmd name="body" invoke="LanternRender">

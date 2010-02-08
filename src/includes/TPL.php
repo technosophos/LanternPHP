@@ -39,8 +39,13 @@ class TPL {
   }
   
   public static function snip($text, $maxChars = 25) {
-    $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    // Turn newlines into spaces.
+    $text = str_replace("\n", ' ', $text);
     
+    // Strip markup, extra characters.
+    $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_HIGH | FILTER_FLAG_STRIP_LOW);
+    
+    // Trim to last whitespace.
     $len = strlen($text);
     if ($len > $maxChars) {
       $whitespace = strrpos($text, ' ', ($maxChars - 1 - $len));

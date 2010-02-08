@@ -10,17 +10,11 @@
  */
 abstract class BaseLanternCommand extends BaseFortissimoCommand {
   
-  const TYPE_UNKNOWN = 'unknown';
-  const TYPE_NOTE = 'note';
-  const TYPE_SOURCE = 'source';
-  const TYPE_JOURNAL = 'journal';
-  
-  /**
-   * User-defined types should use this type, and
-   * should set a subtype for additional specification.
-   */
-  const TYPE_USER_DEFINED = 'user_defined';
-  
+  const TYPE_UNKNOWN = 'Unknown';
+  const TYPE_NOTE = 'Note';
+  const TYPE_SOURCE = 'Source';
+  const TYPE_JOURNAL = 'Journal';
+    
   /**
    * @var array
    * Convenience filter array definition to provide HTML filtering. Causes a
@@ -83,6 +77,33 @@ abstract class BaseLanternCommand extends BaseFortissimoCommand {
   
   protected function explodeTags($string) {
     return array_map('trim', explode(',', $string));
+  }
+  
+  /**
+   * Load an entry from the database.
+   *
+   * This performas a findOne search for the given filter. Note that 
+   * it automatically converts _id strings to MongoID objects.
+   *
+   * @param mixed $filter
+   *  - If this is a string, it will be treated as an _id value.
+   *  - If this is an array, it will be treated as a filter. Also, if the _id
+   *    field is a string, it will be converted to a MongoID object.
+   * @return array
+   *  The matching object, or NULL if nothing is found.
+   */
+  protected function loadEntry($filter = array()) {
+    
+    if (is_string($filter)) {
+      $newFilter = array(
+        '_id' => new MongoID($filter),
+      );
+    }
+    elseif (isset($filter['_id']) && is_string($filter['_id'])) {
+      $filter['_id'] = new MongoID($filter['_id']);
+    }
+    
+    return $this->collection()->findOne($filter);
   }
   
 }

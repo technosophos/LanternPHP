@@ -20,6 +20,11 @@ $bc = TPL::breadcrumbs(array(
 ));
 print $bc;
 ?>
+<form action="<?php Util::url('edit-journal'); ?>" method="GET" class="utility-form">
+  <input type="submit" name="create_entry" value="Edit" id="create_entry">
+  <input type="hidden" name="ff" value="edit-journal">
+  <input type="hidden" name="entryId" value="<?php print (string)$_id; ?>"/>
+</form>
 <div class="journal-entry">
   <h1 class="journal-entry-title"><?php print $title; ?></h1>
   <div class="journal-entry-body"><?php print $entry; ?></div>

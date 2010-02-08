@@ -32,7 +32,9 @@
       </td>
       <td><?php print date(TPL::shortDate, $entry['modifiedOn']->sec); ?></td>
       <td><?php print TPL::tags($entry['tags']); ?></td>
+      <!--
       <td><a href="">edit</a></td>
+      -->
     </tr>
       <?php
     }

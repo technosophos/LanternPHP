@@ -117,7 +117,7 @@
   
   <request name="edit-journal">
     <cmd group="bootstrap"/>
-    <cmd name="defaultStyle" invoke="LanternAddToContext">
+    <cmd name="pageVariables" invoke="LanternAddToContext">
       <param name="title">Journal Entry</param>
     </cmd>
     <cmd name="journalEntry" invoke="LanternEdit">
@@ -134,18 +134,15 @@
   
   <request name="save-journal">
     <cmd group="bootstrap"/>
+    <cmd name="pageVariables" invoke="LanternAddToContext">
+      <param name="head_title">Journal Saved</param>
+    </cmd>
     
     <cmd name="savedEntry" invoke="LanternSaveJournal">
       <param name="entryId" from="post:entryId"/>
       <param name="title" from="post:title"/>
       <param name="entry" from="post:entry"/>
       <param name="tags" from="post:tags"/>
-      <!--
-      <param name="title">My Second Entry</param>
-      <param name="entry">This is a *test* entry body.</param>
-      <param name="tags">a, b, cde</param>
-      <param name="entryID">4b68fdbb8ead0e103d020000</param>
-      -->
     </cmd>
     
     <cmd name="body" invoke="LanternRender">
@@ -159,6 +156,9 @@
   
   <request name="journals">
     <cmd group="bootstrap"/>
+    <cmd name="pageVariables" invoke="LanternAddToContext">
+      <param name="head_title">Journal Entries</param>
+    </cmd>
 
     <cmd name="journals" invoke="LanternFind">
       <param name="filter">{"lanternType": "Journal"}</param>

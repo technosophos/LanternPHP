@@ -114,6 +114,17 @@
     <cmd group="output"/>
   </request>
   
+  <request name="edit-source">
+    <cmd group="bootstrap"/>
+    
+    
+    <cmd name="body" invoke="LanternRender">
+      <param name="template">tpl/jumbo_edit.tpl.php</param>
+      <param name="themeDir" from="cxt:theme">themes/vanilla</param>
+    </cmd>
+    
+    <cmd group="output"/>
+  </request>
   
   <request name="edit-journal">
     <cmd group="bootstrap"/>

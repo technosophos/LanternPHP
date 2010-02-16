@@ -162,6 +162,7 @@ class LanternSaveSource extends BaseLanternCommand {
   
   protected function createEntry(&$record) {
     
+    
   }
   
   protected function verifyTags($data) {

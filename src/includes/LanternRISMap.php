@@ -68,7 +68,7 @@ class LanternRISMap {
    * @return string
    *  The RIS name (or NULL if no name is found.)
    */
-  public function getRISName($lanternName) {
+  public static function getRISName($lanternName) {
     // Avoid E_STRICT warning.
     return isset(self::$map[$lanternName]) ? self::$map[$lanternName] : NULL;
   }
@@ -87,7 +87,7 @@ class LanternRISMap {
    * @return string
    *  The name of the lantern field (or NULL if no lantern field is found.)
    */
-  public function getLanternName($risName) {
+  public static function getLanternName($risName) {
     // Lazily build flipped map because it is not used as often. The
     // flipped map is only used during imports.
     if (empty(self::$flippedMap)) {

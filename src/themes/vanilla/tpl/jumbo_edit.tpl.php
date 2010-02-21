@@ -122,8 +122,10 @@ function sourceTypeList($selected = 'BOOK') {
   <fieldset id="article_details" class="">
     <legend>Article Details</legend>
     
+    <!--
     <label for="article_title">Article Title</label>
     <input type="text" name="article_title" size="50" value="" id="article_title" class="input-title">
+    -->
     
     <label>Author(s)</label>
     <textarea name="article_authors" rows="5" cols="40"></textarea>
@@ -209,8 +211,10 @@ function sourceTypeList($selected = 'BOOK') {
     <label for="misc_2">Misc 2</label>
     <input type="text" name="misc_2" value="<?php print ''; ?>" size="60" id="misc_2"/>
     
+    <!--
     <label for="misc_3">Misc 3</label>
     <input type="text" name="misc_3" value="<?php print ''; ?>" size="60" id="misc_3"/>
+    -->
     
     <label for="availability">Availability</label>
     <input type="text" name="availability" value="<?php print '';?>" size="60" 

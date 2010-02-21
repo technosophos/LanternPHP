@@ -70,8 +70,9 @@ class LanternSaveSource extends BaseLanternCommand {
       ->usesParam('journal_standard_abbreviation', 'The standard abbreviation for this journal title.')
       ->withFilter('string')
       
-      ->usesParam('article_title', 'The title of this article.')
-      ->withFilter('string')
+      // This is just Primary Title.
+      //->usesParam('article_title', 'The title of this article.')
+      //->withFilter('string')
       
       ->usesParam('article_authors', 'The authors of this article.')
       ->withFilter('string')
@@ -133,8 +134,9 @@ class LanternSaveSource extends BaseLanternCommand {
       ->withFilter('string')
       ->usesParam('misc2', 'Misc field')
       ->withFilter('string')
-      ->usesParam('misc3', 'Misc field')
-      ->withFilter('string')
+      // Misc 3 is DOI.
+      //->usesParam('misc3', 'Misc field')
+      //->withFilter('string')
       
       ->usesParam('availability', 'This work\'s availability.')
       ->withFilter('string')
@@ -146,23 +148,46 @@ class LanternSaveSource extends BaseLanternCommand {
   public function doCommand() {
     // Clone param array.
     $params = $this->params;
+    $params['lanternType'] = self::TYPE_SOURCE;
+    $params['modifiedOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
+    
+    // This is done by the filter.
+    //$params['tags'] = explode(',', $this->param('tags', ''));
+    
+    // Provisional. Not sure what to do here:
+    $params['entry'] = $params['notes'];
     
     // Check on ID
     if (!empty($params['entryID'])) {
-      return $this->modifyEntry($params);
+      $entry = $this->modifyEntry($params);
     }
     else {
-      return $this->createEntry($params);
+      $entry = $this->createEntry($params);
     }
+    
+    // What do we do here? This isn't very graceful.
+    if (empty($entry)) {
+      throw new FortissimoException('Could not create a new source entry.');
+    }
+    
+    return $entry;
   }
   
   protected function modifyEntry(&$record) {
+    $record['_id'] = new MongoID($record['entryID']);
+    unset($record['entryID']);
     
+    $entry = $this->collection()->save($record);
+    
+    return $entry;
   }
   
   protected function createEntry(&$record) {
+    $record['createdOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
     
+    $entry = $this->collection()->insert($record);
     
+    return $entry;
   }
   
   protected function verifyTags($data) {

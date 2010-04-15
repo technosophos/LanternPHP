@@ -37,7 +37,24 @@ class LanternRISImport extends BaseLanternCommand {
   
   public function doCommand() {
     $records = $this->param('ris', array());
-    return $this->convertRecords($records);
+    $convertedRecords = $this->convertRecords($records);
+    $saved = array();
+    foreach ($convertedRecords as $record) {
+      $this->saveRecord($record);
+      if (isset($record['_id'])) {
+        $saved[(string)$record['_id']] = $record['title'];
+      }
+    }
+    return $saved;
+  }
+  
+  public function saveRecord(&$record) {
+    $record['modifiedOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
+    $record['createdOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
+    $record['lanternType'] = self::TYPE_SOURCE;
+    $record['title'] = LanternRISMap::getBestTitle($record);
+    
+    $this->collection()->insert($record);
   }
   
   /**

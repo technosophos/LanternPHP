@@ -97,4 +97,24 @@ class LanternRISMap {
     return isset(self::$flippedMap[$risName]) ? self::$flippedMap[$risName] : NULL;
   }
   
+  /**
+   * Get the best title for a record.
+   * @param array $lanternRecord
+   *   An associative array containing a lantern record.
+   * @return string
+   *   The best title, or 'Untitled' if no title can be found.
+   */
+  public static function getBestTitle(&$lanternRecord) {
+    $possible = array('book_title', 'primary_title', 'title_of_unpublished_work',
+     'journal_title', 'secondary_title', 'series_title', 'primary_author',
+     'article_authors');
+    foreach ($possible as $p) {
+      if(isset($lanternRecord[$p])) {
+        $title = $lanternRecord[$p];
+        return is_array($title) ? $title[0] : (string)$title;
+      }
+    }
+    return 'Untitled';
+  }
+  
 }

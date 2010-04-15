@@ -151,6 +151,9 @@ class LanternSaveSource extends BaseLanternCommand {
     $params['lanternType'] = self::TYPE_SOURCE;
     $params['modifiedOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
     
+    // Title is a "generated" field for sources.
+    $params['title'] = LanternRISMap::getBestTitle($params);
+    
     // This is done by the filter.
     //$params['tags'] = explode(',', $this->param('tags', ''));
     
@@ -177,17 +180,17 @@ class LanternSaveSource extends BaseLanternCommand {
     $record['_id'] = new MongoID($record['entryID']);
     unset($record['entryID']);
     
-    $entry = $this->collection()->save($record);
+    $this->collection()->save($record);
     
-    return $entry;
+    return $record;
   }
   
   protected function createEntry(&$record) {
     $record['createdOn'] = new MongoDate(FORTISSIMO_REQ_TIME);
     
-    $entry = $this->collection()->insert($record);
+    $this->collection()->insert($record);
     
-    return $entry;
+    return $record;
   }
   
   protected function verifyTags($data) {

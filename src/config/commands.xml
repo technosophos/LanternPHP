@@ -126,6 +126,23 @@
     <cmd group="output"/>
   </request>
   
+  <request name="upload-source">
+  </request>
+  <request name="import-source">
+    <cmd group="bootstrap"/>
+    <cmd name="importSource"/>
+    <cmd name="savedSource" invoke="LanternSaveSource">
+      
+    </cmd>
+    <cmd name="body" invoke="LanternRender">
+      <param name="variables" from="cxt:savedSource"/>
+      <param name="template">tpl/import-source.tpl.php</param>
+      <param name="themeDir" from="cxt:theme">themes/vanilla</param>
+    </cmd>
+    
+    <cmd group="output"/>
+  </request>
+  
   <request name="edit-journal">
     <cmd group="bootstrap"/>
     <cmd name="pageVariables" invoke="LanternAddToContext">

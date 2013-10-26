@@ -4,6 +4,24 @@
   <!-- 
   <include path="test/Tests"/>  
   -->
+
+  <!--
+  Fortissimo provides a very thin database abstraction layer.
+  
+  To use it with MongoDB, simply customize the setup below. To use another
+  database, implement FortissimoDatasource, and then use the implementing
+  class in the invoke method here.
+  
+  You can use as many datasources as you want. Just give each one a different
+  name.
+  
+  -->
+  <!-- datasource name="db" invoke="FortissimoMongoDatasource">
+    <param name="server">mongodb://localhost:27017</param>
+    <param name="defaultDB">LanternPHP</param>
+    
+    <param name="isDefault">true</param>
+  </datasource -->
   
   <!-- ========================================== 
         GROUPS

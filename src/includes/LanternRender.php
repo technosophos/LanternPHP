@@ -27,7 +27,7 @@ class LanternRender extends BaseLanternCommand {
       
       ->usesParam('variables', 'An associative array containing the variables to be made available to the template. If this is not supplied, the execution context is used.')
       
-      ->usesParam('themeDir', 'The directory containing the theme. Paths to templates are created by adding base path to (optional) theme dir, and then appending the template. No leading or trailing slashes!')
+      ->usesParam('themeDir', 'The directory containing the theme. Paths to templates are created by adding base path to (optional) theme dir, and then appending the template. No leading or trailing slashes! To use more than one directory, supply a comma-separated string, ordered by importance.')
       ->withFilter('string')
       
       ->usesParam('template', 'The name of the template file into which the variables will be rendered. Leading slash is read as an absolute path. Otherwise, the path is built.')
